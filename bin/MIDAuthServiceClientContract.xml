@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MIDAuthServiceClientContract</name>
+    </assembly>
+    <members>
+        <member name="P:MIDAuthSignContract.Entities.AuthenticateRequest.ServiceProviderId">
+             <summary>
+            GUID representing the identity of the service provider
+             </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.AuthenticateRequest.ServiceDescriptionEN">
+             <summary>
+            English Description of the provided service
+             </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.AuthenticateRequest.ServiceDescriptionAR">
+             <summary>
+            Arabic Description of the provided service
+             </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.AuthenticateRequest.AdditionalData">
+             <summary>
+            Additional Data provided by the service provided and it will returned in the callback
+             </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.AuthenticateRequest.Challenge">
+             <summary>
+            Optional and can be passed by the service provider
+             </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.AuthenticateRequest.SPCallbackURL">
+             <summary>
+            Call back URL passed by the service provider and it must be restful service
+             </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.AuthenticateRequest.PersonCivilNo">
+            <summary>
+            User Civil No to get the mobile device and push the notification to it
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.AuthenticationQRData.QRCodeImage">
+             <summary>
+            Base64 image of the Data returned
+             </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.AuthenticationQRData.QRCode">
+             <summary>
+            Actual value of the data
+             </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.NotificationRequest.ServiceProviderId">
+            <summary>
+            GUID representing the identity of the service provider
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.NotificationRequest.PersonCivilNo">
+            <summary>
+            End user Civil Number that you want to send the notification to
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.NotificationRequest.NotificationSubjectEn">
+            <summary>
+            The shown subject in English (MAX 150 Character)
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.NotificationRequest.NotificationSubjectAr">
+            <summary>
+            The shown subject in Arabic (MAX 150 Character)
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.NotificationRequest.NotificationMessageEn">
+            <summary>
+            The message text in English 
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.NotificationRequest.NotificationMessageAr">
+            <summary>
+            The message text in Arabic
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.SigningRequest.ServiceProviderId">
+            <summary>
+            GUID representing the identity of the service provider
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.SigningRequest.PromptAr">
+            <summary>
+            English Description of the provided service
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.SigningRequest.PromptEn">
+            <summary>
+            Arabic Description of the provided service
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.SigningRequest.PersonCivilNo">
+            <summary>
+            User Civil No to get the mobile device and push the notification to it
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.SigningRequest.AdditionalSPData">
+            <summary>
+            Additional Data provided by the service provided and it will returned in the callback
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.SigningRequest.Challenge">
+            <summary>
+            Hash Base64 of the document hash or the data to be signed by the mobile
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.SigningRequest.CallbackURL">
+            <summary>
+            Call back URL passed by the service provider and it must be restful service
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.SigningRequest.PreviewFile">
+            <summary>
+            binary of document to signed to preview on the mobile
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.SigningRequest.FileName">
+            <summary>
+            Name of the file 
+            </summary>
+        </member>
+        <member name="P:MIDAuthSignContract.Entities.SigningRequest.FileType">
+            <summary>
+            Files Types can be "application/pdf" or "application/XML"
+            </summary>
+        </member>
+    </members>
+</doc>

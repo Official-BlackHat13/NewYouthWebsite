@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MIDAuthServiceClient</name>
+    </assembly>
+    <members>
+        <member name="M:PACI.MobileId.IntegrationServices.Client.MIDAuthServiceClient.#ctor(System.Security.Cryptography.X509Certificates.X509Certificate2,System.String,System.String)">
+            <summary>
+            Initialize new instance of the AuthSign Class. with specified service provider Client Certificate 
+            , Service DNS Name and Port
+            </summary>
+            <param name="serviceProviderClientCertificate">Client certificate of the service provider , the client certificate must has it's private key</param>
+            <param name="paciServiceHostName">DNS name of the host service which has the MIDAuthSignService</param>
+            <param name="paciServicePort">Port of the MIDAuthSignService</param>
+        </member>
+        <member name="M:PACI.MobileId.IntegrationServices.Client.MIDAuthServiceClient.InitiateAuthRequestQR(MIDAuthSignContract.Entities.AuthenticateRequest)">
+            <summary>
+            Iniatate authentication request and create base64 image of the encrypted authentication request id
+            This method will use the default assurance level of service provider
+            If service provider does not have default assurance level it will be High by default
+            </summary>
+            <param name="authRequestData">
+            
+            </param>
+            <returns>
+            Data = decrypted authentication request id 
+            QRImage = Encoded Base64 image of the encrypted authentication request id
+            </returns>
+        </member>
+        <member name="M:PACI.MobileId.IntegrationServices.Client.MIDAuthServiceClient.InitiateAuthRequestPN(MIDAuthSignContract.Entities.AuthenticateRequest)">
+            <summary>
+            Iniatate authentication request and Push notification to the device that owned by the provided civil id
+            This method will use the default assurance level of service provider
+            If service provider does not have default assurance level it will be High by default
+            </summary>
+            <param name="authRequestData">
+            Civil Id is required
+            </param>
+            <returns>
+            Data = decrypted authentication request id 
+            </returns>
+        </member>
+        <member name="M:PACI.MobileId.IntegrationServices.Client.MIDAuthServiceClient.InitiateSigningRequest(MIDAuthSignContract.Entities.SigningRequest)">
+            <summary>
+            Iniatate Signing request and Push notification to the device that owned by the provided civil id
+            This method will use the default assurance level of service provider
+            If service provider does not have default assurance level it will be High by default
+            </summary>
+            <param name="signingRequest">
+            Civil Id is required
+            </param>
+            <returns>
+            Data = decrypted authentication request id 
+            Challenege = hashed document
+            </returns>
+        </member>
+        <member name="M:PACI.MobileId.IntegrationServices.Client.MIDAuthServiceClient.GetUserCertificate(System.String,System.String)">
+            <summary>
+            Return Certificate of specified user
+            </summary>
+            <param name="serviceProviderId">service provider GUID</param>
+            <param name="civilNo">civil No of the user to return the certificate</param>
+            <returns></returns>
+        </member>
+        <member name="M:PACI.MobileId.IntegrationServices.Client.MIDAuthServiceClient.VerifyMobileIdQRData(System.String,System.String)">
+            <summary>
+            Verify Kuwait Mobile Identity QR that is generated from the Kuwait Mobile ID APP
+            </summary>
+            <param name="serviceProviderId">service provider GUID</param>
+            <param name="qrData"> Decoded QR Value string</param>
+            <returns></returns>
+        </member>
+        <member name="M:PACI.MobileId.IntegrationServices.Client.MIDAuthServiceClient.InitiateAuthRequestQR(MIDAuthSignContract.Enums.AssuranceLevel,MIDAuthSignContract.Entities.AuthenticateRequest)">
+            <summary>
+            Iniatate authentication request and create base64 image of the encrypted authentication request id based on assurance level
+            </summary>
+            <param name="authRequestData">
+            
+            </param>
+            <param name="assuranceLevel">
+            High or medium or low 
+            </param>
+            <returns>
+            Data = decrypted authentication request id 
+            QRImage = Encoded Base64 image of the encrypted authentication request id
+            </returns>
+        </member>
+        <member name="M:PACI.MobileId.IntegrationServices.Client.MIDAuthServiceClient.InitiateAuthRequestPN(MIDAuthSignContract.Enums.AssuranceLevel,MIDAuthSignContract.Entities.AuthenticateRequest)">
+            <summary>
+            Iniatate authentication request and Push notification to the device that owned by the provided civil id after validating the eligibility of the user based on the assuarnce level
+            </summary>
+            <param name="authRequestData">
+            Civil Id is required
+            </param>
+            <param name="assuranceLevel">
+            High or medium or low 
+            </param>
+            <returns>
+            Data = decrypted authentication request id 
+            </returns>
+        </member>
+        <member name="M:PACI.MobileId.IntegrationServices.Client.MIDAuthServiceClient.InitiateSigningRequest(MIDAuthSignContract.Enums.AssuranceLevel,MIDAuthSignContract.Entities.SigningRequest)">
+            <summary>
+            Iniatate Signing request and Push notification to the device that owned by the provided civil id after validating the eligibility of the user based on the assuarnce level
+            </summary>
+            <param name="signingRequest">
+            Civil Id is required
+            </param>
+            <param name="assuranceLevel">
+            High or medium or low 
+            </param>
+            <returns>
+            Data = decrypted authentication request id 
+            Challenege = hashed document
+            </returns>
+        </member>
+        <member name="M:PACI.MobileId.IntegrationServices.Client.MIDAuthServiceClient.NotifyPerson(MIDAuthSignContract.Entities.NotificationRequest)">
+            <summary>
+            Send a notification to a person
+            Notificationrequest contains the notification subject in Arabic and English
+            and message in Arabic and English
+            </summary>
+            <param name="notificationRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PACI.MobileId.IntegrationServices.Client.MIDAuthServiceClient.HasMobileIdentity(System.String,System.String)">
+            <summary>
+            Check if a user has a Mobile Identity
+            </summary>
+            <param name="serviceProviderId">service provider GUID</param>
+            <param name="civilNo">civil No of the user</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
