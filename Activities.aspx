@@ -12,6 +12,8 @@
                     </div>
                 </div>
                  </div>
+
+
                  <div class="container">
             <div class="text-center mt-50">
                 <h2>الأنشطة</h2>

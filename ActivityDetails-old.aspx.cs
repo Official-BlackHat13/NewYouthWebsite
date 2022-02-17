@@ -9,10 +9,10 @@ using System.Data.SqlClient;
 
 public partial class ActivityDetails : System.Web.UI.Page
 {
-   fn_General fn = new fn_General();
+    fn_General fn = new fn_General();
     protected void Page_Load(object sender, EventArgs e)
     {
-        fn.checkQueryString(Request.QueryString["id"].ToString());
+        fn.checkQueryString(Request.QueryString["ati"].ToString());
 
         if (Request.QueryString["id"] != null)
             FillNewsDetails();
@@ -79,7 +79,9 @@ public partial class ActivityDetails : System.Web.UI.Page
                     }
 
                     #endregion
-                    
+                    //date.InnerText = activity.DateFrom.Value.ToString("dd/MM/yyyy");
+
+
                    
                     int cnt = 0;
                     if (id == 5)
@@ -170,9 +172,21 @@ public partial class ActivityDetails : System.Web.UI.Page
 
                     else if (id == 27)
                     {
-                        
+                        //var Pcount = ctx.ActivitiesRegs.Count(a => a.ActivityID.Value == 12);
+                        //cnt = Convert.ToInt32(Pcount);
+                        //if (cnt >= 750)
+                        //{
+                        //    regLink.Attributes.Add("href", "#");
+                        //    regLink.Attributes.Add("class", "btn btn-default");
+                        //    regLink.Disabled = true;
+                        //}
+                        //else
+                        //LoginLink.Visible = true;
+
+                        //LoginLink.Attributes.Add("onclick", "lnkDownloadDetailas_Click");
+                        //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Date expired...!!!')", true);
                         lnkDownloadDetailas.Visible = true;
-                       
+                        //regLink.Attributes.Add("onclick", "ActivityDetails.aspx?ati=" + activity.ActivityID);
                         regLink.Attributes.Add("runat", "server");
                         regLink.ServerClick += new EventHandler(this.regLink_Click);
 
@@ -194,6 +208,9 @@ public partial class ActivityDetails : System.Web.UI.Page
                         regSurvey.Visible = true;
                         regSurvey.Attributes.Add("href", "https://docs.google.com/forms/d/e/1FAIpQLScmzV0uaj_HxXzuCnoJ6yhMmneTTSDtW2dGOAR1heyhaL74hA/viewform?usp=sf_link");
 
+
+
+                        // Response.Redirect("https://docs.google.com/forms/d/e/1FAIpQLScmzV0uaj_HxXzuCnoJ6yhMmneTTSDtW2dGOAR1heyhaL74hA/viewform?usp=sf_link", false);
                     }
                     else if (id == 16)
                     {
@@ -242,7 +259,8 @@ public partial class ActivityDetails : System.Web.UI.Page
                 }
                 else
                 {
-                    pnlPhotoGallery.Visible = false;                  
+                    pnlPhotoGallery.Visible = false;
+                  //  Response.Redirect("Index_AR.aspx", false);
                 }
 
             }
@@ -271,7 +289,8 @@ public partial class ActivityDetails : System.Web.UI.Page
         {
             cnn.ConnectionString = gm.YPA();
             cnn.Open();
-           
+
+            // SqlCommand cmd = new SqlCommand(SQLstring, cnn);
             var SDA = new SqlDataAdapter(SQLstring, cnn);
             DataSet DS = new DataSet();
 
@@ -353,7 +372,25 @@ public partial class ActivityDetails : System.Web.UI.Page
 
     protected void lnkDownloadDetailas_Click(object sender, EventArgs e)
     {
-        Downloadfile("Huawei_Courses.pdf");       
-    }
 
+        Downloadfile("Huawei_Courses.pdf");
+
+        //string fname = "Huawei_Courses.docx";
+
+        //string filePath = Server.MapPath("~/OnlineCourse/" + fname); // Specify the location of the file
+        //using (FileStream fileStream = File.OpenRead(filePath))
+        //{
+        //    MemoryStream memStream = new MemoryStream();
+        //    memStream.SetLength(fileStream.Length);
+        //    fileStream.Read(memStream.GetBuffer(), 0, (int)fileStream.Length);
+
+        //    Response.Clear();
+        //    Response.ContentType = "application/vnd.ms-word";
+        //    Response.AddHeader("Content-Disposition", "attachment; filename=" + fname);
+        //    Response.BinaryWrite(memStream.ToArray());
+        //    Response.Flush();
+        //    Response.Close();
+        //    Response.End();
+        //}
+    }
 }
