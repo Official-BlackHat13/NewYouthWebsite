@@ -98,7 +98,7 @@ public partial class ActivityDetails : System.Web.UI.Page
 
                     if (id == 6)
                     {
-                        regLink.Attributes.Add("href", "Forms/ActivityRegister?ati=" + ActivityID);
+                        regLink.Attributes.Add("href", "Forms/ActivityRegister?id=" + ActivityID);
                     }
                     else if (id == 7)
                     {
@@ -108,8 +108,8 @@ public partial class ActivityDetails : System.Web.UI.Page
                     else if (id == 8)
                     {
                         LoginLink.Visible = true;
-                        regLink.Attributes.Add("href", "Forms/ResearchRegister?ati=" + ActivityID);
-                        LoginLink.Attributes.Add("href", "Forms/ResearchDetails?ati=" + ActivityID);
+                        regLink.Attributes.Add("href", "Forms/ResearchRegister?id=" + ActivityID);
+                        LoginLink.Attributes.Add("href", "Forms/ResearchDetails?id=" + ActivityID);
                     }
                     else if (id == 9)
                     {
@@ -122,7 +122,7 @@ public partial class ActivityDetails : System.Web.UI.Page
                             regLink.Disabled = true;
                         }
                         else
-                            regLink.Attributes.Add("href", "Forms/RegisterYouthValley?ati=" + ActivityID);
+                            regLink.Attributes.Add("href", "Forms/RegisterYouthValley?id=" + ActivityID);
                     }
 
                     else if (id == 10)
@@ -136,7 +136,7 @@ public partial class ActivityDetails : System.Web.UI.Page
                             regLink.Disabled = true;
                         }
                         else
-                            regLink.Attributes.Add("href", "Forms/RegisterYouthValley?ati=" + ActivityID);
+                            regLink.Attributes.Add("href", "Forms/RegisterYouthValley?id=" + ActivityID);
                     }
 
 
@@ -151,7 +151,7 @@ public partial class ActivityDetails : System.Web.UI.Page
                             regLink.Disabled = true;
                         }
                         else
-                            regLink.Attributes.Add("href", "Forms/RegisterYouthValley?ati=" + ActivityID);
+                            regLink.Attributes.Add("href", "Forms/RegisterYouthValley?id=" + ActivityID);
                     }
 
                     else if (id == 12)
@@ -165,7 +165,7 @@ public partial class ActivityDetails : System.Web.UI.Page
                             regLink.Disabled = true;
                         }
                         else
-                            regLink.Attributes.Add("href", "Forms/OnlineCourseReg.aspx?ati=" + ActivityID);
+                            regLink.Attributes.Add("href", "Forms/OnlineCourseReg.aspx?id=" + ActivityID);
                     }
 
                     else if (id == 27)
@@ -206,7 +206,7 @@ public partial class ActivityDetails : System.Web.UI.Page
                             regLink.Disabled = true;
                         }
                         else
-                            regLink.Attributes.Add("href", "Forms/Heritageyouth.aspx?ati=" + ActivityID);
+                            regLink.Attributes.Add("href", "Forms/Heritageyouth.aspx?id=" + ActivityID);
 
                     }
                     else if (id == 17)
@@ -220,12 +220,12 @@ public partial class ActivityDetails : System.Web.UI.Page
                             regLink.Disabled = true;
                         }
                         else
-                            regLink.Attributes.Add("href", "Forms/Youngleaders.aspx?ati=" + ActivityID);
+                            regLink.Attributes.Add("href", "Forms/Youngleaders.aspx?id=" + ActivityID);
                     }
 
                     else
                     {
-                        regLink.Attributes.Add("href", "Forms/Youngleaders.aspx?ati=" + ActivityID);
+                        regLink.Attributes.Add("href", "Forms/Youngleaders.aspx?id=" + ActivityID);
                     }
 
 

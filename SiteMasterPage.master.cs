@@ -9,20 +9,19 @@ public partial class SiteMasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       // userMenu.Visible = false;
+       
 
+        //if (Session["userid"] == null)
+        //{
+        //    login.Text = "تسجيل الدخول";
+        //    lnkreg.Text = "تسجيل جديد";
+        //}
+        //else
+        //{
+        //    login.Text = "تسجيل الخروج";
+        //    lnkreg.Text = "الملف الشخصي";
 
-        if (Session["userid"] == null)
-        {
-            login.Text = "تسجيل الدخول";
-            lnkreg.Text = "تسجيل جديد";
-        }
-        else
-        {
-            login.Text = "تسجيل الخروج";
-            lnkreg.Text = "الملف الشخصي";
-
-        }
+        //}
     }
 
     protected void lnkreg_Click(object sender, EventArgs e)

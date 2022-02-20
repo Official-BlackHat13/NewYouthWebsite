@@ -15,9 +15,6 @@
                     <div class="container">
                         <div class="content-part">
 
-
-
-
                             <!-- <div class="slider-des">
                         
                                     <h1 class="sl-title mb-0">  الهيئة العامة للشباب
@@ -35,6 +32,7 @@
                                         </li>
                                     </ul>
                                 </div> -->
+
                         </div>
                     </div>
                 </div>
