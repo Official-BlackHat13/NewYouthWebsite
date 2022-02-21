@@ -1,0 +1,142 @@
+ 
+     body{background:url(bg-img.jpg) top left no-repeat; background-size:cover;}
+
+
+     
+     .vertical-center {
+        min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+        min-height: 100vh; /* These two lines are counted as one :-)       */
+      
+        display: flex;
+        align-items: center;
+      }
+
+.btn-green{background-color:#24b314; color:#fff; }
+.myform a:hover {color:#fff !important; }
+
+      .myform{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1rem;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fafff9;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 1.1rem;
+    outline: 0;
+ min-width:375px;
+     }
+
+.myform .form-control{background-color:#f0f7ef; border:1px solid #c2e2bf;}
+
+     .tx-tfm{
+     text-transform:uppercase;
+     }
+     .mybtn{
+     border-radius:50px;
+     }
+    
+ 
+     .hr-or {
+     height: 1px;
+     margin-top: 0px !important;
+     margin-bottom: 0px !important;
+     }
+
+      form .error {
+     color: #ff0000;
+     }
+   
+     .uploadPreview {
+        width: 100%;
+        height: 100% ;
+        overflow: hidden;
+    
+    }
+    
+    .uploadPreview img {
+     max-width: 100%;
+     max-height: 60vh;
+    background-size: cover;
+    
+    }
+
+ 
+.border-white {
+    border-color: #e8e5e5!important;
+    border: 1px solid;
+    min-height: 30vh;
+}
+
+#file, #file1, #file2, #file3{position: absolute;
+    top: 50%;
+    left: 40%;}
+
+.File{position: absolute;
+    top: 50%;
+    left: 40%;}
+
+    .ground-bg{background:url(../img/ground.jpg)  top left; background-size: 100% 100%;} 
+
+    h2{ background-color:white; color:#000; padding:10px; position: absolute;  box-shadow:3px 4px 5px #ccc;}
+
+    .radio-yes-no{ background-color: #67a4bb;
+        color: #fff;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #5aa4bf;
+    }
+    .borderless td, .borderless th {
+        border: none;
+    }
+
+    .dir-change{direction:rtl; text-align:right;}
+
+    .table-color{background-color: #5990a5;
+        padding: 10px;
+        border-radius: 30px 0px 30px 0px;
+        box-shadow: 2px 2px 0px #b2d1dc;}
+.table-color .table td{
+    padding:4px !important;
+  
+}
+
+
+
+        .foot-sign{background-color: #5990a5;
+            padding: 40px 20px;
+            border-radius: 0px 0px 30px 0px;
+            box-shadow: 2px 2px 0px #b2d1dc;
+            margin:20px 0;
+        color:#fff;
+    direction:rtl;
+    text-align:right;
+    }
+
+        .table-color input[type=radio]{height:20px; width:20px; margin-top:5px; }
+        .yellow-color{color:#e8a730; padding-top:30px !important;}
+
+
+        .RadioButtonList label
+{
+  margin-right: 3px;
+  margin-left: 120px;
+}
+
+
+@media (max-width:667px) {
+
+            .RadioButtonList label
+{
+  margin-right: 3px;
+  margin-left: 5px;
+}
+    .File {
+        left: 0;
+    }
+
+}

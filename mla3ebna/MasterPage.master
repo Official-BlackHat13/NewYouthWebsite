@@ -1,0 +1,681 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <%-- <title>مباراتنا</title>--%>
+    <title>
+        ملاعبنا 
+مرحبا بك في ملاعبنا حيث يمكنك حجز ملعبك المفضل ومنافسة أصدقائك
+    </title>
+    
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="مرحبا بك في ملعبنا حيث يمكنك حجز ملعبك المفضل ومنافسة أصدقائك"/>
+    <meta name="keywords" content="" />
+    <meta name="author" content="ملعبنا"/>
+    
+  <%--  <base href="/">--%>
+
+ 
+
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/superfish.js"></script>
+
+    <script src="js/select2.js"></script>
+    <script src="js/jquery.superslides.js"></script>
+    <script src="js/jquery.parallax-1.1.3.resize.js"></script>
+
+
+    <script src="js/jquery.appear.js"></script>
+    <script src="js/jquery.caroufredsel.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.ui.totop.js"></script>
+
+     <script src="js/touchTouch.jquery.js"></script>
+   <%-- <script src="js/isotope.pkgd.min.js"></script>--%>
+    <script src="js/imagesloaded.pkgd.js"></script> 
+      <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    crossorigin=""></script>
+    
+
+
+    <script src="js/script.js"></script>    
+
+
+       <link href="images/favicon.png" rel="icon"/>
+    
+
+    <link href="css/bootstrap.css" rel="stylesheet"/>   
+    
+    <link href="css/jquery-ui.css" rel="stylesheet"/>
+    <link href="css/font-awesome.css" rel="stylesheet"/>
+    <link href="css/superslides.css" rel="stylesheet"/>
+   <%-- <link href="css/superslides.css" rel="stylesheet" />--%>
+  <%--  <link href="css/isotope.css" rel="stylesheet"/>--%>
+    <link href="css/animate.css" rel="stylesheet"/>
+    <link href="css/select2.css" rel="stylesheet"/>
+    <link href="css/smoothness/jquery-ui-1.10.0.custom.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet" />     
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+    <style>
+        .map { width: 640px; height: 480px; }
+        
+        .heart {
+          width: 100px;
+          height: 100px;
+          background: url("heart.png") no-repeat;
+          background-position: 0 0;
+          cursor: pointer;
+          transition: background-position 1s steps(28);
+          transition-duration: 0s;
+        }
+        .heart.is-active {
+          transition-duration: 1s;
+          background-position: -2800px 0;
+        }
+
+
+
+        .stage {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+        }
+ 
+  
+        
+        @media screen and (min-width: 479px) {
+          .title_message {
+            visibility: hidden;
+            clear: both;
+            float: left;
+            margin: 10px auto 5px 20px;
+            width: 28%;
+            display: none;
+            background:#6cacc5;
+          }
+        }
+
+        .spinner {
+           position: absolute;
+           left: 50%;
+           top: 50%;
+           height:60px;
+           width:60px;
+           margin:0px auto;
+           -webkit-animation: rotation .6s infinite linear;
+           -moz-animation: rotation .6s infinite linear;
+           -o-animation: rotation .6s infinite linear;
+           animation: rotation .6s infinite linear;
+           border-left:6px solid rgba(0,174,239,.15);
+           border-right:6px solid rgba(0,174,239,.15);
+           border-bottom:6px solid rgba(0,174,239,.15);
+           border-top:6px solid rgba(0,174,239,.8); 
+           border-radius:100%;
+        }
+        
+           @-webkit-keyframes rotation {
+           from {-webkit-transform: rotate(0deg);}
+           to {-webkit-transform: rotate(359deg);}
+        }
+        @-moz-keyframes rotation {
+           from {-moz-transform: rotate(0deg);}
+           to {-moz-transform: rotate(359deg);}
+        }
+        @-o-keyframes rotation {
+           from {-o-transform: rotate(0deg);}
+           to {-o-transform: rotate(359deg);}
+        }
+        @keyframes rotation {
+           from {transform: rotate(0deg);}
+           to {transform: rotate(359deg);}
+        }
+        
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+
+
+    fieldset, label {  direction:ltr;}
+    /*body{ margin: 20px; }*/
+    h1 { font-size: 1.5em; margin: 10px; }
+
+    /****** Style Star Rating Widget *****/
+
+    .ratingonly { 
+      border: none;
+      float: none;
+    }
+
+    .ratingonly > input { display: none; } 
+    .ratingonly > label:before { 
+      margin: 5px;
+      font-size: 1.25em;
+      font-family: FontAwesome;
+      display: inline-block;
+      content: "\f005";
+    }
+
+    .ratingonly > .half:before { 
+      content: "\f089";
+      position: absolute;
+    }
+
+    .ratingonly > label { 
+      color: #ddd; 
+     float: right; 
+    }
+
+    .ratingonly > input:checked ~ label, /* show gold star when clicked */
+     /*.ratingonly:not(:checked) > label:hover, hover current star */
+    /*.ratingonly:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+    /*.ratingonly > input:checked + label:hover, /* hover current star when changing rating */
+    /*.ratingonly > input:checked ~ label:hover,
+    .ratingonly > label:hover ~ input:checked ~ label, /* lighten current selection */
+    .ratingonly > input:checked ~ label:hover ~ label { color: #FFD700;  } 
+
+
+
+
+     .ratingonlytwo { 
+      border: none;
+      float: none;
+    }
+
+    .ratingonlytwo > input { display: none; } 
+    .ratingonlytwo > label:before { 
+      margin: 5px;
+      font-size: 1.25em;
+      font-family: FontAwesome;
+      display: inline-block;
+      content: "\f005";
+    }
+
+    .ratingonlytwo > .half:before { 
+      content: "\f089";
+      position: absolute;
+    }
+
+    .ratingonlytwo > label { 
+      color: #ddd; 
+     float: right; 
+    }
+
+    .ratingonlytwo > input:checked ~ label, /* show gold star when clicked */
+     /*.ratingonly:not(:checked) > label:hover, hover current star */
+    /*.ratingonly:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+    /*.ratingonly > input:checked + label:hover, /* hover current star when changing rating */
+    /*.ratingonly > input:checked ~ label:hover,
+    .ratingonly > label:hover ~ input:checked ~ label, /* lighten current selection */
+    .ratingonlytwo > input:checked ~ label:hover ~ label { color: #FFD700;  } 
+
+
+    .ratingonlythree { 
+      border: none;
+      float: none;
+    }
+
+    .ratingonlythree > input { display: none; } 
+    .ratingonlythree > label:before { 
+      margin: 5px;
+      font-size: 1.25em;
+      font-family: FontAwesome;
+      display: inline-block;
+      content: "\f005";
+    }
+
+    .ratingonlythree > .half:before { 
+      content: "\f089";
+      position: absolute;
+    }
+
+    .ratingonlythree > label { 
+      color: #ddd; 
+     float: right; 
+    }
+
+    .ratingonlythree > input:checked ~ label, /* show gold star when clicked */
+     /*.ratingonly:not(:checked) > label:hover, hover current star */
+    /*.ratingonly:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+    /*.ratingonly > input:checked + label:hover, /* hover current star when changing rating */
+    /*.ratingonly > input:checked ~ label:hover,
+    .ratingonly > label:hover ~ input:checked ~ label, /* lighten current selection */
+    .ratingonlythree > input:checked ~ label:hover ~ label { color: #FFD700;  } 
+
+
+
+
+
+    .ratingonlydet { 
+      border: none;
+      float: none;
+    }
+
+    .ratingonlydet > input { display: none; } 
+    .ratingonlydet > label:before { 
+      margin: 5px;
+      font-size: 2.00em;
+      font-family: FontAwesome;
+      display: inline-block;
+      content: "\f005";
+    }
+
+    .ratingonlydet > .half:before { 
+      content: "\f089";
+      position: absolute;
+    }
+
+    .ratingonlydet > label { 
+      color: #ddd; 
+     float: right; 
+    }
+
+    .ratingonlydet > input:checked ~ label, /* show gold star when clicked */
+     /*.ratingonly:not(:checked) > label:hover, hover current star */
+    /*.ratingonly:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+    /*.ratingonly > input:checked + label:hover, /* hover current star when changing rating */
+    /*.ratingonly > input:checked ~ label:hover,
+    .ratingonly > label:hover ~ input:checked ~ label, /* lighten current selection */
+    .ratingonlydet > input:checked ~ label:hover ~ label { color: #FFD700;  } 
+    
+
+
+
+    .rating { 
+      border: none;
+      float: none;
+    }
+
+    .rating > input { display: none; } 
+    .rating > label:before { 
+      margin: 5px;
+      font-size: 2.00em;
+      font-family: FontAwesome;
+      display: inline-block;
+      content: "\f005";
+    }
+
+    .rating > .half:before { 
+      content: "\f089";
+      position: absolute;
+    }
+
+    .rating > label { 
+      color: #ddd; 
+     float: right; 
+    }
+
+    /***** CSS Magic to Highlight Stars on Hover *****/
+
+    .rating > input:checked ~ label, /* show gold star when clicked */
+    .rating:not(:checked) > label:hover, /* hover current star */
+    .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+    .rating > input:checked + label:hover, /* hover current star when changing rating */
+    .rating > input:checked ~ label:hover,
+    .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+    .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" class="front superslides-version">
+    <div id="main">
+<i class="fas fa-sign-in-alt"></i>
+
+        <div class="top1_wrapper">
+        <div class="container">
+        <!--fa fa-sign-in-->
+        <!--<i class="fas fa-sign-in-alt"></i>-->
+            <div class="top1 clearfix" >
+                <div class="login">  <asp:LinkButton ID="lnkLogin" runat="server" OnClick="lnkLogin_Click" Text="إنشاء حساب "></asp:LinkButton> <i class="fa fa-sign-in" runat="server" id="iSignOut"></i><%--<i class="fa fa-sign-out"></i>--%> <%--<a href="" ng-click="LoginRedirect();">{{logtext}} </a>--%></div>
+				<div class="register"> <asp:Label ID="lblName" runat="server"></asp:Label> &nbsp;<asp:LinkButton ID="lnkReg" runat="server" OnClick="lnkReg_Click" Text="إنشاء حساب "></asp:LinkButton>   &nbsp;<i class="fa fa-user"></i> <%-- <a href="" ng-click="LoginRedirectRegsiter();"> {{regtext}}</a>--%></div>
+				
+                <div class="social_wrapper">
+                    <ul class="social clearfix">
+                       <%-- <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>--%>
+                        <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
+                        
+                        <li><a href="javascript:void(0)"><i class="fa fa-instagram"></i></a></li>
+                       
+                    </ul>
+                </div>
+
+               
+            </div>
+        </div>
+    </div>
+ 
+         <div class="top2_wrapper">
+        <div class="container">
+            <div class="top2 clearfix">
+                <header>
+                    <div class="logo_wrapper">
+                        <a href="index.aspx" class="logo">
+                            <img src="images/MaleabnaLogo.png" alt="" width="65px" height="65px" class="img-responsive" />
+                        </a>
+                    </div>
+                </header>
+                <div class="navbar navbar_ navbar-default">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-collapse navbar-collapse_ collapse">
+                         <ul class="nav navbar-nav sf-menu clearfix">
+                           
+                              <li>
+                            <a  href="index.aspx">الرئيسية</a></li>
+                           
+                            <li><a href="About.aspx">عن ملاعبنا</a></li>
+                            
+                           
+                            <li><a href="#" data-toggle="modal" data-target="#exampleModal" >حجز الملاعب </a></li>
+                            <li><a href="Contact.aspx">الإتصال بنا  </a></li>
+
+                          <li><a href="Guidence.aspx">طريقة الإستخدام  </a></li>
+                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+   <%-- <div class="top2_wrapper">
+        <div class="container">
+            <div class="top2 clearfix">
+                <header>
+                    <div class="logo_wrapper">
+                        <a href="index.aspx" class="logo">
+                            <img src="images/MaleabnaLogo.png" alt="" class="img-responsive">
+                        </a>
+                    </div>
+                </header>
+                <div class="navbar navbar_ navbar-default">                  
+                    <div class="navbar-collapse navbar-collapse_ collapse">
+                        <ul class="nav navbar-nav sf-menu clearfix">
+                            <li class="active">
+                            <a  href="index.aspx">الرئيسية</a></li>
+                           
+                            <li><a href="About.aspx">عن ملعبنا</a></li>
+                            
+                        
+                            <li><a href="" data-toggle="modal" data-target="#exampleModal" >حجز الملاعب </a></li>
+                            <li><a href="Contact.aspx">الإتصال بنا  </a></li>
+
+                      
+                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>--%>
+
+
+
+
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+
+
+       <%-- footer Started--%>
+
+
+           <div class="bot1_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                 <br> <br>                    
+                    <img src="images/ypa-logo.png" width="150"/>
+                   
+                </div>
+                <div class="col-sm-3">
+                    <div class="bot1_title">ملاعبنا</div>
+                    <ul class="ul1">
+                        <li><a href="About.aspx">عن ملاعبنا</a></li>                       
+                         <li><a href="" data-toggle="modal" data-target="#exampleModal" >حجز الملاعب </a></li>                   
+                        <li> <a href="Policy.aspx">سياسة الخصوصية</a></li>
+                        <li> <a href="Reservation.aspx">سياسة الحجز</a></li>
+                       
+                    </ul>
+
+                 
+
+                </div>
+                <div class="col-sm-3">
+                  
+                    <div class="bot1_title">تواصل معنا</div>
+                      <ul class="ul1">
+                          <li> <a href="Contact.aspx">اتصل بنا </a></li>
+                        <li><a href="Support.aspx">الدعم الفني والمساعدة</a></li>                     
+                       
+                    </ul>
+                </div>
+              <%--  <div class="col-sm-3">
+                    <div class="bot1_title">الإتصال بنا</div>
+                   
+                    <div class="phone2">134</div>
+                    <div class="support1"><a href="#">Mubaratna@youth.gov.kw</a></div>
+                </div>--%>
+            </div>
+        </div>
+    </div>
+ 
+           <div class="bot2_wrapper">
+        <div class="container">
+            <!--<div class="left_side">
+                Copyright © 2017 <strong>MECOVACHE</strong> <span>|</span> <a href="#">Privacy Policy</a> <span>|</span>
+                <a href="#">About Us</a> <span>|</span> <a href="#">FAQ</a> <span>|</span> <a href="#">Contact
+                Support</a>
+            </div>-->
+           <%-- <div class="" style="text-align:center;">جميع الحقوق محفوظة لدى وزارة الدولة لشئون الشباب © 2020</div>--%>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="" style="text-align:center; padding-top: 13px;">جميع الحقوق محفوظة للهيئة العامة للشباب © 2021</div>
+                </div>
+                <div class="col-md-6 text-left">
+                    <img src="images/knet.png" height="45" style="box-shadow: 0px 0px 5px #fff;" />
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+        <%--footer Ends--%>
+   </div>
+
+
+
+
+       <%-- popup window--%>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">اختيار التاريخ </h5>
+         
+      </div>
+      <div class="modal-body"  >
+            <div class="row">
+                <div class="col-md-3"></div>
+                    <div class="col-md-6" id="dividmodal">      
+                                     
+                    <div id="datepickermodal"  autocomplete="off" data-dismiss="modal"></div> 
+
+                         <asp:LinkButton ID="lnkGetStadiumData1" runat="server" CssClass="hidden" OnClick="lnkGetStadiumData1_Click" ClientIDMode="Static" Text="GetStadiumData"></asp:LinkButton>
+                            <asp:HiddenField ID="hiddenDate1" runat="server" ClientIDMode="Static" />
+                </div>
+            </div>
+      </div>
+
+      <div class="modal-footer">
+           <button type="button" class="btn btn-danger" data-dismiss="modal">إغلاق </button>
+          <button type="button" class="btn btn-success" id="btnsearch1">بحث </button>
+          
+                  <%--<asp:LinkButton ID="lnkModelDate1" runat="server" CssClass="btn btn-success" Text="بحث" OnClick="lnkModelDate_Click"></asp:LinkButton>--%>
+             
+           
+       
+                 
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+
+        
+
+
+        <script type="text/javascript">
+            $(function () {
+                $("#lnkModelDate1").click(function (e) {
+                    var selected = $("#hiddenDate1").val();
+                    alert($("#hiddenDate1").val());
+                    if (selected === '') {
+                        alert("Choose date!!!");
+                        e.preventDefault();
+                    }
+                });
+            });
+        </script>
+        <script src="js/bootstrap.min.js"  type="application/javascript"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnsearch1").click(function () {
+           
+            var selected = $("#hiddenDate1").val();
+           // alert(selected);
+            if (typeof (selected) === 'undefined' || selected === '') {
+                alrert("Choose Date!!!");
+            }
+            else {
+
+                $.ajax({
+                    type: 'post',
+                    url: 'MYMA.asmx/fn_CheckWholeSiteBlock',
+                    data: {
+                        ld_data: selected
+                    },
+                    dataType: 'json',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (data[0].Error == 'False') {
+
+                            window.location = 'SiteBlock.aspx?msg=' + data[0].DisplayMsg;
+                        }
+                        else if (data[0].Error == 'True') {
+                            var btn = document.getElementById('<%=lnkGetStadiumData1.ClientID%>');
+                            btn.click();
+                        }
+
+                        $('#cover-spin').hide(0)
+                    }, error: function (data, ajaxOptions, thrownError) {
+                        // alert(data.d);
+                        console.log(data);
+                        //scope.msg = data[0].message;
+                        //scope.$apply();
+                        //scope.MsgBox();
+                        //$('#cover-spin').hide(0)
+                    }
+                });
+            }
+        });
+    });
+</script>
+ 
+ <script>
+
+     $(function () {
+         $("#datepickermodal").datepicker({
+             dateFormat: 'dd-mm-yy', minDate: 0, maxDate: "+7D",
+             onSelect: function (dateText) {
+                 var selected = $(this).val();
+                 $("#hiddenDate1").val(selected);
+               
+                 //alert($("#hiddenDate1").val());
+                
+                 //$.ajax({
+                 //    type: 'post',
+                 //    url: 'MYMA.asmx/fn_CheckWholeSiteBlock',
+                 //    data: {
+                 //        ld_data: selected
+                 //    },
+                 //    dataType: 'json',
+                 //    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                 //    success: function (data, textStatus, jqXHR) {
+                         
+                 //        if (data[0].Error == 'False') {
+
+                 //            window.location = 'SiteBlock.aspx?msg=' + data[0].DisplayMsg;
+                 //        }
+                 //        else if (data[0].Error == 'True') {
+                 //            var btn = document.getElementById('<=lnkGetStadiumData.ClientID%>');
+                 //               btn.click();
+                 //           }
+
+                 //           $('#cover-spin').hide(0)
+                 //       }, error: function (data, ajaxOptions, thrownError) {
+                 //           // alert(data.d);
+                 //           console.log(data);
+                 //           scope.msg = data[0].message;
+                 //           scope.$apply();
+                 //           scope.MsgBox();
+                 //           $('#cover-spin').hide(0)
+                 //       }
+                 //   });
+                
+                 
+
+
+             }
+         });
+
+     });
+
+   
+
+     $(document).ready(function () {
+
+         $(".heart").on("click", function () {
+             console.log('test');
+             $(this).toggleClass("is-active");
+         });
+     });
+
+
+  </script>
+    </form>
+</body>
+</html>

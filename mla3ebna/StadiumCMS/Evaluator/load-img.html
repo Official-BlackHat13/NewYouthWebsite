@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<head>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="validate.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+              
+<div class="radio-yes-no">
+            <div class="table-color">
+            <table class="table borderless dir-change">
+                <tbody>
+                <tr class="d-flex">
+                    <td class="col-3"> <label for="yes_no_radio1"><strong>مدخل الملعب</strong></label></td>
+                    <td class="col-3"><input type="radio" name="yes_no1"  checked> صالح</input></td>
+                    <td class="col-3"><input type="radio" name="yes_no1" > غير صالح </input></td>
+                  
+                </tr>
+
+                <tr class="d-flex">
+                    <td class="col-3"> <label for="yes_no_radio2"><strong>أرضية الملعب</strong></label></td>
+                    <td class="col-3"><input type="radio" name="yes_no2" checked> صالح</input></td>
+                    <td class="col-3"><input type="radio" name="yes_no2"> غير صالح </input></td>
+                   
+                </tr>
+
+                <tr class="d-flex">
+                    <td class="col-3"> <label for="yes_no_radio3"><strong>تحديد الملعب</strong></label></td>
+                    <td class="col-3"><input type="radio" name="yes_no3" checked> صالح</input></td>
+                    <td class="col-3"><input type="radio" name="yes_no3"> غير صالح </input></td>
+               
+                </tr>
+
+                <tr class="d-flex">
+                    <td class="col-3"> <label for="yes_no_radio4"><strong>المرمى</strong></label></td>
+                    <td class="col-3"><input type="radio" name="yes_no4" checked> صالح</input></td>
+                    <td class="col-3"><input type="radio" name="yes_no4"> غير صالح </input></td>
+          
+                </tr>
+
+                <tr class="d-flex">
+                    <td class="col-3"> <label for="yes_no_radio5"><strong>شبك المرمى.</strong></label></td>
+                    <td class="col-3"><input type="radio" name="yes_no5" checked> يوجد</input></td>
+                    <td class="col-3"><input type="radio" name="yes_no5"> لايوجد</input></td>
+                
+                </tr>
+                <tr class="d-flex">
+                    <td class="col-3"> <label for="yes_no_radio6"><strong>ماء(برادة)</strong></label></td>
+                    <td class="col-3"><input type="radio" name="yes_no6" checked> يوجد</input></td>
+                    <td class="col-3"><input type="radio" name="yes_no6"> لايوجد</input></td>
+                   
+                </tr>
+                <tr class="d-flex">
+                    <td class="col-3"> <label for="yes_no_radio7"><strong>كشافات إضاءة</strong></label></td>
+                    <td class="col-3"><input type="radio" name="yes_no7" checked> يوجد</input></td>
+                    <td class="col-3"><input type="radio" name="yes_no7"> لايوجد</input></td>
+                  
+                </tr>
+
+                <tr class="d-flex">
+                    <td class="col-3"> <label for="yes_no_radio7"><strong>حمامات</strong> </label></td>
+                    <td class="col-3"><input type="radio" name="yes_no7" checked> يوجد</input></td>
+                    <td class="col-3"><input type="radio" name="yes_no7"> لايوجد</input></td>
+                  
+                </tr>
+                <br />
+                <tr>
+
+            <td class="yellow-color"><strong>ملاحظات :</strong></td>
+
+                </tr>
+                <tr><td>
+<textarea col="3" rows="3" style="width:80%;"></textarea>
+
+                </td></tr>
+
+            </tbody>
+</table>
+</div>
+</div>
+
+</div>
+        </div>
+
+
+
+    <div class="ground-bg">
+        <div class="row no-gutters">
+    
+            <div class="col-md-6 col-12 col-sm-12 border-white">
+
+
+                <h2 class="direction">Top Left Image</h2>
+           <input type="file" id="file"/>
+            <div id="uploadPreview">
+            
+            </div>
+        
+    
+
+        </div>
+        
+        <div class="col-md-6 col-12 col-sm-12 border-white">
+            <input type="file" id="file1"/>
+            <div id="uploadPreview1">
+            
+            </div>
+     
+    
+
+		</div>
+      </div>   
+      <div class="row  no-gutters">
+    
+        <div class="col-md-6 col-12  col-sm-12 border-white">
+       <input type="file" id="file2"/>
+        <div id="uploadPreview2">
+        
+        </div>
+ 
+
+
+    </div>
+    
+    <div class="col-md-6 col-12 col-sm-12 border-white">
+    <input type="file" id="file3"/>
+        <div id="uploadPreview3">
+        
+        </div>
+   
+
+
+    </div>
+  </div> 
+    </div>  
+
+    <div class="foot-sign">
+<form>
+<div class="row">
+<div class="col-md-4">
+    <div class="form-group">
+        <label for="formGroupExampleInput">الشرف :</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="الشرف">
+      </div>
+
+</div>
+
+<div class="col-md-4">
+    <div class="form-group">
+        <label for="formGroupExampleInput">مسؤول المنطقة :</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="مسؤول المنطقة">
+      </div>
+    
+</div>
+
+
+<div class="col-md-4">
+    <div class="form-group">
+        <label for="formGroupExampleInput">رئيس الفريق : </label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="رئيس الفريق">
+      </div>
+    
+</div>
+
+
+
+
+</div>
+
+</form>
+    </div>
+</div>   
+
+
+
+      <script>
+
+$( document ).ready(function() {
+        var _URL = window.URL || window.webkitURL;
+  $("h2.direction").hide();
+        $("#file").change(function(e) {
+            var image, file;
+            if ((file = this.files[0])) {
+                image = new Image();
+                image.onload = function() {
+                        src = this.src;
+                $('#uploadPreview').html('<img src="'+ src +'"></div>');
+                        e.preventDefault();
+                    }
+                    $("h2.direction").show();
+
+
+
+
+                };
+                image.src = _URL.createObjectURL(file);
+                $("#file").hide();
+            });
+      
+            });
+  </script>
+
+
+</body>

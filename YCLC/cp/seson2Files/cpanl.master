@@ -1,0 +1,161 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="cpanl.master.cs" Inherits="cpanl" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="type/image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
+    <title>::SACGC::</title>
+    <link rel="stylesheet" href="../../YCL/CP/css/style.default.css" type="text/css" />
+    <link rel="stylesheet" href="../../YCL/CP/prettify/prettify.css" type="text/css" />
+    <link rel="stylesheet" href="../../YCL/CP/fonts/font-awesome.css" type="text/css" />
+    <script type="text/javascript" src="../../YCL/CP/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../YCL/CP/js/jquery-ui-1.9.2.min.js"></script>
+    <script type="text/javascript" src="../../YCL/CP/js/bootstrap.min.js"></script>
+
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body onload="goforit()">
+    <form id="form1" runat="server">
+
+        <div class="mainwrapper fullwrapper">
+
+            <!-- START OF LEFT PANEL -->
+            <div class="leftpanel">
+                <div class="logopanel">
+                    <h1>
+                        <img src="../../YCL/img/logo.png" /></h1>
+                </div>
+                <!--logopanel-->
+
+                <div class="datewidget">
+                    <script>
+                        /*
+                        Live Date Script- 
+                        */
+                        var dayarray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+                        var montharray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+
+                        function getthedate() {
+                            var mydate = new Date()
+                            var year = mydate.getYear()
+                            if (year < 1000)
+                                year += 1900
+                            var day = mydate.getDay()
+                            var month = mydate.getMonth()
+                            var daym = mydate.getDate()
+                            if (daym < 10)
+                                daym = "0" + daym
+                            var hours = mydate.getHours()
+                            var minutes = mydate.getMinutes()
+                            var seconds = mydate.getSeconds()
+                            var dn = "AM"
+                            if (hours >= 12)
+                                dn = "PM"
+                            if (hours > 12) {
+                                hours = hours - 12
+                            }
+                            if (hours == 0)
+                                hours = 12
+                            if (minutes <= 9)
+                                minutes = "0" + minutes
+                            if (seconds <= 9)
+                                seconds = "0" + seconds
+                            //change font size here
+                            var cdate = "<small><font color='5b5b5b' face='Arial'><b>" + dayarray[day] + ", " + montharray[month] + " " + daym + ", " + year + " " + hours + ":" + minutes + ":" + seconds + " " + dn
+                            + "</b></font></small>"
+                            if (document.all)
+                                document.all.clock.innerHTML = cdate
+                            else if (document.getElementById)
+                                document.getElementById("clock").innerHTML = cdate
+                            else
+                                document.write(cdate)
+                        }
+                        if (!document.all && !document.getElementById)
+                            getthedate()
+                        function goforit() {
+                            if (document.all || document.getElementById)
+                                setInterval("getthedate()", 1000)
+                        }
+
+                    </script>
+                    <span id="clock"></span>
+                </div>
+
+                <!--plainwidget-->
+
+                <div class="leftmenu">
+                    <ul class="nav nav-tabs nav-stacked">
+
+                        <li id="liview" runat="server"><a href="YCLC_ViewUsers.aspx"><span class="icon-chevron-right"></span>View Competition  User </a></li>
+                        <li id="li1" runat="server"><a href="contact.aspx"><span class="icon-chevron-right"></span>Contact </a></li>
+                        <li id="li2" runat="server"><a href="YCLC_UserBasic.aspx"><span class="icon-chevron-right"></span>View Training User </a></li>
+
+                    </ul>
+                </div>
+                <!--leftmenu-->
+            </div>
+            <!--mainleft-->
+            <!-- END OF LEFT PANEL -->
+
+            <!-- START OF RIGHT PANEL -->
+            <div class="rightpanel">
+                <div class="headerpanel">
+                    <a href="" class="showmenu"></a>
+                    <div class="headerright">
+                        <div class="dropdown userinfo">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="/page.html">ADMIN<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <asp:LinkButton ID="logout" runat="server" Text="Log Out" OnClick="logout_Click">Log Out <span class="icon-off"></span></asp:LinkButton>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--dropdown-->
+
+                    </div>
+                    <!--headerright-->
+
+                </div>
+                <!--headerpanel-->
+                <div class="breadcrumbwidget">
+                    <asp:ContentPlaceHolder ID="url" runat="server"></asp:ContentPlaceHolder>
+                </div>
+                <!--breadcrumbs-->
+                <div class="pagetitle">
+                    <asp:ContentPlaceHolder ID="pagetitle" runat="server"></asp:ContentPlaceHolder>
+                </div>
+                <!--pagetitle-->
+
+                <div class="maincontent">
+                    <div class="contentinner">
+                        <asp:ContentPlaceHolder ID="mainContent" runat="server"></asp:ContentPlaceHolder>
+                    </div>
+                    <!--contentinner-->
+                </div>
+                <!--maincontent-->
+
+            </div>
+            <!--mainright-->
+            <!-- END OF RIGHT PANEL -->
+
+            <div class="clearfix"></div>
+            <div class="footer">
+
+                <div class="footerright">حقوق الطبع محفوظة لمكتب وزير الدولة لشئون الشباب  © 2019 <a href="http://www.youth.gov.kw"></div>
+            </div>
+            <!--footer-->
+
+        </div>
+        <!--mainwrapper-->
+
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select2 Select Multiple Checkboxes Example - Bootstrap 4</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+</head>
+<style type="text/css">
+    .container {
+        padding-top: 20px;
+    }
+    .select2-selection__choice__remove {
+        display: none !important;
+    }
+    label {
+        margin-left: 10px;
+        display: inline-block;
+        margin-bottom: 0px;
+    }
+    body{
+        background-color: #e5b5b3;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row mt-5 pt-5">
+            <div class="mt-5 pt-5 col-md-5 offset-md-3">
+                <select id="country" placeholder="Select Text" multiple>
+                    <option disabled>Select Text</option>
+                    <option value="php">Php</option>
+                    <option value="bootstrap">Bootstrap</option>
+                    <option value="sql">sql</option>
+                    <option value="nodejs">Node Js</option>
+                    <option value="laravel">Laravel</option>
+                    <option value="Jquery">Jquery</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        let branch_all = [];
+        
+        function formatResult(state) {
+            if (!state.id) {
+                var btn = $('<div class="text-right"><button id="all-branch" style="margin-right: 10px;" class="btn btn-default">Select All</button><button id="clear-branch" class="btn btn-default">Clear All</button></div>')
+                return btn;
+            }
+            
+            branch_all.push(state.id);
+            var id = 'state' + state.id;
+            var checkbox = $('<div class="checkbox"><input id="'+id+'" type="checkbox" '+(state.selected ? 'checked': '')+'><label for="checkbox1">'+state.text+'</label></div>', { id: id });
+            return checkbox;   
+        }
+        
+        function arr_diff(a1, a2) {
+            var a = [], diff = [];
+            for (var i = 0; i < a1.length; i++) {
+                a[a1[i]] = true;
+            }
+            for (var i = 0; i < a2.length; i++) {
+                if (a[a2[i]]) {
+                    delete a[a2[i]];
+                } else {
+                    a[a2[i]] = true;
+                }
+            }
+            for (var k in a) {
+                diff.push(k);
+            }
+            return diff;
+        }
+        
+        let optionSelect2 = {
+            templateResult: formatResult,
+            closeOnSelect: false,
+            width: '100%'
+        };
+        
+        let $select2 = $("#country").select2(optionSelect2);
+        
+        var scrollTop;
+        
+        $select2.on("select2:selecting", function( event ){
+            var $pr = $( '#'+event.params.args.data._resultId ).parent();
+            scrollTop = $pr.prop('scrollTop');
+        });
+        
+        $select2.on("select2:select", function( event ){
+            $(window).scroll();
+            
+            var $pr = $( '#'+event.params.data._resultId ).parent();
+            $pr.prop('scrollTop', scrollTop );
+            
+            $(this).val().map(function(index) {
+                $("#state"+index).prop('checked', true);
+            });
+        });
+        
+        $select2.on("select2:unselecting", function ( event ) {
+            var $pr = $( '#'+event.params.args.data._resultId ).parent();
+            scrollTop = $pr.prop('scrollTop');
+        });
+        
+        $select2.on("select2:unselect", function ( event ) {
+            $(window).scroll();
+            
+            var $pr = $( '#'+event.params.data._resultId ).parent();
+            $pr.prop('scrollTop', scrollTop );
+            
+            var branch  =   $(this).val() ? $(this).val() : [];
+            var branch_diff = arr_diff(branch_all, branch);
+            branch_diff.map(function(index) {
+                $("#state"+index).prop('checked', false);
+            });
+        });
+        
+        $(document).on("click", "#all-branch",function(){
+            $("#country > option").not(':first').prop("selected", true);// Select All Options
+            $("#country").trigger("change")
+            $(".select2-results__option").not(':first').attr("aria-selected", true);
+            $("[id^=state]").prop("checked", true);
+            $(window).scroll();
+        });
+        
+        $(document).on("click", "#clear-branch", function(){
+            $("#country > option").not(':first').prop("selected", false);
+            $("#country").trigger("change");
+            $(".select2-results__option").not(':first').attr("aria-selected", false);
+            $("[id^=state]").prop("checked", false);
+            $(window).scroll();
+        });
+    });
+</script>
+</html>
