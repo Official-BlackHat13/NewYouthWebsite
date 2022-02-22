@@ -29,11 +29,11 @@ public partial class thankyou : System.Web.UI.Page
         }
         else
         {
-          
+
             if (!IsPostBack)
             {
 
-               
+
                 id = Session["userid"].ToString();
                 id = gfn.SessionDecrypt(id, SHA512.Create().ToString());
                 id = id.Substring(id.IndexOf("&") + 1);
@@ -44,16 +44,16 @@ public partial class thankyou : System.Web.UI.Page
                 qry1.Parameters.AddWithValue("@type", SqlDbType.NVarChar).Value = "User";
                 con.ConnectionString = gm.ConnectionString();
                 con.Open();
-                string email = (string)qry1.ExecuteScalar();             
+                string email = (string)qry1.ExecuteScalar();
 
                 con.Close();
                 if (Session["ini_YPIbid"] != null)
                 {
-                 //   r_id.Text = Session["ini_YPIbid"].ToString();
+                    //   r_id.Text = Session["ini_YPIbid"].ToString();
                     //need to add text
-                   gfn.AgencyEmail(email,"101", "YPIinitiative");
+                    gfn.AgencyEmail(email, "101", "YPIinitiative");
                 }
-                
+
             }
         }
     }

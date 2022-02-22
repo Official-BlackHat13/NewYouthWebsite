@@ -1,0 +1,46 @@
+﻿body {
+}
+
+
+.tacbox {
+  display:block;
+  padding: 10px;
+  margin: 1em  0;
+color:#fff;
+}
+.tacbox a{color:#fff;}
+.terms-body{
+max-height:400px;
+/*overflow-y: scroll;*/
+}
+.term-close{
+    position: absolute;
+    top: 16px;
+    left: 15px !important;
+    opacity: 1;
+}
+
+.modal-header{
+    background-color: #d5ecff;
+    font-size:20px;
+
+}
+
+.student-reg-form{margin-bottom:20px;}
+.student-reg-form h1{ color:#2891a8; font-weight:bold;}
+label{color:#fff;}
+
+.student-reg-form .bg-form{background-color:#2891a8}
+.top-content{margin-top:20px; border-top:1px solid #2891a8; border-left:1px solid #2891a8; border-right:1px solid #2891a8; }
+.btn-custom
+{
+
+    color: #fff;
+    background-color: #0f5767;
+    border-color: #f7f7f7;
+    font-weight:bold;
+    text-transform:uppercase;
+    font-size:18px;
+}
+.btn-custom:hover{color:#ccc;}
+img{ max-width:100%;}

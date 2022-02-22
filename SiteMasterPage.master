@@ -128,7 +128,7 @@
                         <div class="row">
                             <div class="col-lg-2">
                                 <div class="logo-area">
-                                    <a href="Index_AR.aspx">
+                                    <a href='<%= ResolveClientUrl("~/Index_AR.aspx") %>'>
                                         <img src='<%= ResolveClientUrl("~/assets/images/logo-ypa.png") %>' alt="logo" /></a>
                                 </div>
                             </div>
@@ -142,13 +142,13 @@
                                         </div>
                                         <nav class="rs-menu pr-65">
                                             <ul id="onepage-menu" class="nav-menu">
-                                                <li class="active-menu"><a href="#rs-header">الرئيسية</a></li>
-                                                <li><a href="Index_Ar.aspx#rs-about">نبذه عنا</a></li>                                                
+                                                <li class="active-menu"><a href='<%= ResolveClientUrl("Index_Ar.aspx#rs-header") %>'>الرئيسية</a></li>
+                                                <li><a href='<%= ResolveClientUrl("Index_Ar.aspx#rs-about") %>'>نبذه عنا</a></li>                                                
                                                <%-- <li><a href="Index_Ar.aspx#rs-services">الأخبار</a></li>--%>
-                                                <li><a href="Index_Ar.aspx#rs-activities">الأنشطة والفعاليات</a></li>
-                                                <li><a href="Index_AR.aspx#rs-services">الخدمات الإلكترونية</a></li>
+                                                <li><a href='<%= ResolveClientUrl("Index_Ar.aspx#rs-activities") %>'>الأنشطة والفعاليات</a></li>
+                                                <li><a href='<%= ResolveClientUrl("Index_AR.aspx#rs-services") %>'>الخدمات الإلكترونية</a></li>
                                               <%--  <li><a href="#rs-blog">معرض الصور</a></li>--%>
-                                                <li><a href="Index_AR.aspx#rs-contact">إتصل بنا</a></li>
+                                                <li><a href='<%= ResolveClientUrl("Index_AR.aspx#rs-contact") %>'>إتصل بنا</a></li>
                                             </ul>
                                             <!-- //.nav-menu -->
                                         </nav>

@@ -89,7 +89,7 @@
     </div>
 
 
-    <section>
+  
         <div class="container-fluid">
             <div class="container bg-white text-right">
 
@@ -234,8 +234,7 @@
 
             </div>
         </div>
-    </section>
-
+  
     <!-- modal-->
 
     <div class="modal fade" id="myModal" role="dialog">

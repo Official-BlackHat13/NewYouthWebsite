@@ -14,19 +14,39 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="PageContent" Runat="Server">
+    
+     <div class="main-content">
+        <!-- Breadcrumbs Section Start -->
+        <div class="rs-breadcrumbs bg-6">
+            <div class="container">
+                <div class="content-part text-center">
+                    <h1 class="breadcrumbs-title white-color mb-0">مجلس الشباب</h1>
+                </div>
+            </div>
+        </div>
 
-      <section>
-        <div class="container-fluid">
-            <div class="container py-5">
+    </div>
+
+
+
+
+   
+     <div class="container-fluid">
+            <div class="container">
+                 <div class="text-center mt-50">
+                    <h3> شكراً لك </h3>
+
+                </div>
+
+                <hr />
+
+
+
                 <div class="container bg-white">
                     <div class="container new-services">
-                        <div class="row" dir="rtl">
+                        <div class="row">
                             <div class="col-xs-12 col-sm-12 text-right">
                               
-
-                                <div class="heading-bg">
-                                    <h1 class="form-style">شكراً لك</h1>
-                                </div>
 
                                   <div class="col-lg-12 col-xs-12 form-bg1">
                                       <div style="color: #2E5E04; padding: 15px; margin-top: 15px; margin-bottom: 15px; text-align: center; font-size: 1.3em; background: #CAF1CA; border-radius: 5px;">
@@ -50,7 +70,7 @@
                 </div>
             </div>
         </div>
-    </section>
+  
 
 </asp:Content>
 
